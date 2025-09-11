@@ -24,10 +24,10 @@ A modern and responsive frontend interface for a library management system. This
 ---
 ## Author
 
-1. Kavish Basole - 23BCE8534
-2. Navya Sivadas - 23BCE8558
-3. Sashank Solasa - 23BCE8527
-4. Mitesh Sai Devar - 23BCE8242
-5. Aakanksha Sai Sri - 23BCE8786
-6. Arsheen Inamdar - 23BCE8532
+1. Mitesh Sai Devar - 23BCE8242
+2. Sashank Solasa - 23BCE8527
+3. Arsheen Inamdar - 23BCE8532
+4. Kavish Basole - 23BCE8534
+5. Navya Sivadas - 23BCE8558
+6. Aakanksha Sai Sri - 23BCE8786
 ---
