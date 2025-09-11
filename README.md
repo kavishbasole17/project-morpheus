@@ -30,7 +30,4 @@ A modern and responsive frontend interface for a library management system. This
 4. Mitesh Sai Devar - 23BCE8242
 5. Aakanksha Sai Sri - 23BCE8786
 6. Arsheen Inamdar - 23BCE8532
-
-
-Project Link: [https://github.com/kavishbasole17/project-morpheus](https://github.com/kavishbasole17/project-morpheus)
 ---
