@@ -14,8 +14,7 @@ Here’s a look at the application's interface.
 
 **RFID Scanner Page**
 *A streamlined interface designed for quick input from an RFID scanner.*
-![Scanner Page](./screenshots/image.png)
-
+![Dashboard View](https://raw.githubusercontent.com/kavishbasole17/project-morpheus/main/image.png)
 ---
 
 ## Features
