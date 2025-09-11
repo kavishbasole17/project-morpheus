@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Library System</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-page="dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="scanner">RFID Scanner</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="books">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="students">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="transactions">Transactions</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="header">
+                <h1 class="page-title" id="page-title">Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn btn-ghost" onclick="refreshData()">Refresh</button>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="page active" id="dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">1,247</div>
+                            <div class="stat-label">Total Books</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">342</div>
+                            <div class="stat-label">Books Issued</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">23</div>
+                            <div class="stat-label">Overdue</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">₹4,580</div>
+                            <div class="stat-label">Fines Collected</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2 class="mb-4" style="font-size: 18px; font-weight: 600;">Recent Activity</h2>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Action</th>
+                                        <th>Book</th>
+                                        <th>Student</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="mono text-muted">14:32</td>
+                                        <td>Issue</td>
+                                        <td>The Pragmatic Programmer</td>
+                                        <td>Sarah Johnson</td>
+                                        <td><span class="badge badge-success">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mono text-muted">14:15</td>
+                                        <td>Return</td>
+                                        <td>Clean Code</td>
+                                        <td>Alex Chen</td>
+                                        <td><span class="badge badge-success">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mono text-muted">13:45</td>
+                                        <td>Issue</td>
+                                        <td>Design Patterns</td>
+                                        <td>Maya Patel</td>
+                                        <td><span class="badge badge-success">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page" id="scanner">
+                    <div class="form-section">
+                        <div class="form-tabs">
+                            <button class="tab-button active" onclick="switchTab('issue', this)">Issue Book</button>
+                            <button class="tab-button" onclick="switchTab('return', this)">Return Book</button>
+                        </div>
+
+                        <div class="tab-content active" id="issue-content">
+                            <form id="issue-form">
+                                <div class="form-group">
+                                    <label class="form-label">Student ID</label>
+                                    <input type="text" class="form-input" id="student-id" placeholder="Scan student ID card" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Book ID</label>
+                                    <input type="text" class="form-input" id="book-id" placeholder="Scan book RFID tag" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Issue Book</button>
+                            </form>
+                            <div id="issue-message"></div>
+                        </div>
+
+                        <div class="tab-content" id="return-content">
+                            <form id="return-form">
+                                <div class="form-group">
+                                    <label class="form-label">Book ID</label>
+                                    <input type="text" class="form-input" id="return-book-id" placeholder="Scan book RFID tag" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Return Book</button>
+                            </form>
+                            <div id="return-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page" id="books">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="search-container" style="width: 300px; margin-bottom: 0;">
+                            <div class="search-icon">⌕</div>
+                            <input type="text" class="search-input" id="book-search" placeholder="Search books...">
+                        </div>
+                        <button class="btn btn-primary">Add Book</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>ISBN</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="books-table-body">
+                                <tr>
+                                    <td class="mono">#B001</td>
+                                    <td>Atomic Habits</td>
+                                    <td class="text-muted">James Clear</td>
+                                    <td class="mono">978-0735211292</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td><button class="btn btn-ghost">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#B002</td>
+                                    <td>The Midnight Library</td>
+                                    <td class="text-muted">Matt Haig</td>
+                                    <td class="mono">978-0525559474</td>
+                                    <td><span class="badge badge-warning">Issued</span></td>
+                                    <td><button class="btn btn-ghost">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#B003</td>
+                                    <td>Project Hail Mary</td>
+                                    <td class="text-muted">Andy Weir</td>
+                                    <td class="mono">978-0593135204</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td><button class="btn btn-ghost">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#B004</td>
+                                    <td>Educated</td>
+                                    <td class="text-muted">Tara Westover</td>
+                                    <td class="mono">978-0399590504</td>
+                                    <td><span class="badge badge-error">Overdue</span></td>
+                                    <td><button class="btn btn-ghost">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#B005</td>
+                                    <td>Klara and the Sun</td>
+                                    <td class="text-muted">Kazuo Ishiguro</td>
+                                    <td class="mono">978-0571364886</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td><button class="btn btn-ghost">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="page" id="students">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="search-container" style="width: 300px; margin-bottom: 0;">
+                            <div class="search-icon">⌕</div>
+                            <input type="text" class="search-input" id="student-search" placeholder="Search students...">
+                        </div>
+                        <button class="btn btn-primary">Add Student</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                    <th>Books</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="students-table-body">
+                                <tr>
+                                    <td class="mono">#S001</td>
+                                    <td>Alex Chen</td>
+                                    <td class="text-muted">alex.chen@university.edu</td>
+                                    <td class="text-muted">Computer Science</td>
+                                    <td class="mono">2</td>
+                                    <td><button class="btn btn-ghost">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#S002</td>
+                                    <td>Maya Patel</td>
+                                    <td class="text-muted">maya.patel@university.edu</td>
+                                    <td class="text-muted">Engineering</td>
+                                    <td class="mono">1</td>
+                                    <td><button class="btn btn-ghost">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#S003</td>
+                                    <td>Jordan Smith</td>
+                                    <td class="text-muted">jordan.smith@university.edu</td>
+                                    <td class="text-muted">Mathematics</td>
+                                    <td class="mono">0</td>
+                                    <td><button class="btn btn-ghost">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#S004</td>
+                                    <td>Sarah Johnson</td>
+                                    <td class="text-muted">sarah.j@university.edu</td>
+                                    <td class="text-muted">Physics</td>
+                                    <td class="mono">3</td>
+                                    <td><button class="btn btn-ghost">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#S005</td>
+                                    <td>Dev Sharma</td>
+                                    <td class="text-muted">dev.sharma@university.edu</td>
+                                    <td class="text-muted">Computer Science</td>
+                                    <td class="mono">1</td>
+                                    <td><button class="btn btn-ghost">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="page" id="transactions">
+                    <div class="search-container mb-6">
+                        <div class="search-icon">⌕</div>
+                        <input type="text" class="search-input" id="transaction-search" placeholder="Search transactions...">
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Book</th>
+                                    <th>Student</th>
+                                    <th>Issued</th>
+                                    <th>Due</th>
+                                    <th>Returned</th>
+                                    <th>Fine</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactions-table-body">
+                                <tr>
+                                    <td class="mono">#T001</td>
+                                    <td>Atomic Habits</td>
+                                    <td class="text-muted">Alex Chen</td>
+                                    <td class="mono">2024-12-15</td>
+                                    <td class="mono">2025-01-15</td>
+                                    <td class="mono">2024-12-30</td>
+                                    <td class="mono">₹0</td>
+                                    <td><span class="badge badge-success">Returned</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#T002</td>
+                                    <td>The Midnight Library</td>
+                                    <td class="text-muted">Maya Patel</td>
+                                    <td class="mono">2024-12-10</td>
+                                    <td class="mono">2025-01-10</td>
+                                    <td class="text-muted">-</td>
+                                    <td class="mono">₹75</td>
+                                    <td><span class="badge badge-error">Overdue</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#T003</td>
+                                    <td>Project Hail Mary</td>
+                                    <td class="text-muted">Jordan Smith</td>
+                                    <td class="mono">2025-01-05</td>
+                                    <td class="mono">2025-02-05</td>
+                                    <td class="text-muted">-</td>
+                                    <td class="mono">₹0</td>
+                                    <td><span class="badge badge-warning">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="mono">#T004</td>
+                                    <td>Educated</td>
+                                    <td class="text-muted">Sarah Johnson</td>
+                                    <td class="mono">2024-11-20</td>
+                                    <td class="mono">2024-12-20</td>
+                                    <td class="text-muted">-</td>
+                                    <td class="mono">₹150</td>
+                                    <td><span class="badge badge-error">Overdue</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
