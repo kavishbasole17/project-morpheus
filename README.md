@@ -1,4 +1,4 @@
-# Library Management System - Frontend Dashboard
+# RFID Based Library Management System
 
 A modern and responsive frontend interface for a library management system. This project provides a clean, dark-themed dashboard for librarians to manage books, students, and transactions. It is designed to integrate with an **RFID scanner** for quick and error-free entry of student and book IDs, streamlining the checkout process.
 
