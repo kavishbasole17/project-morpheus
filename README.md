@@ -14,7 +14,7 @@ Here’s a look at the application's interface.
 
 **RFID Scanner Page**
 *A streamlined interface designed for quick input from an RFID scanner.*
-![Scanner Page](./screenshots/scanner-page.png)
+![Scanner Page](./screenshots/image.png)
 
 ---
 
