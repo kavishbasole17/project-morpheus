@@ -6,12 +6,12 @@ A modern and responsive frontend interface for a library management system. This
 
 ## Features
 
-* ** RFID Integration:** Designed for seamless check-in and check-out. The input fields on the scanner page are intended to be populated by an RFID scanner for student and book IDs.
-* ** Interactive Dashboard:** At-a-glance view of key statistics like total books, issued books, overdue items, and fines collected.
-* ** Multi-Page Navigation:** A smooth, single-page application (SPA) feel with client-side routing to different sections.
-* ** Live Table Search:** Instantly filter through books, students, and transaction records using the dynamic search functionality.
-* ** Modern & Responsive UI:** A sleek, dark-themed design that works seamlessly on both desktop and mobile devices.
-* ** Zero Dependencies:** Built with pure, vanilla HTML, CSS, and JavaScript—no frameworks or libraries required.
+* **RFID Integration:** Designed for seamless check-in and check-out. The input fields on the scanner page are intended to be populated by an RFID scanner for student and book IDs.
+* **Interactive Dashboard:** At-a-glance view of key statistics like total books, issued books, overdue items, and fines collected.
+* **Multi-Page Navigation:** A smooth, single-page application (SPA) feel with client-side routing to different sections.
+* **Live Table Search:** Instantly filter through books, students, and transaction records using the dynamic search functionality.
+* **Modern & Responsive UI:** A sleek, dark-themed design that works seamlessly on both desktop and mobile devices.
+* **Zero Dependencies:** Built with pure, vanilla HTML, CSS, and JavaScript—no frameworks or libraries required.
 
 ---
 
