@@ -4,19 +4,6 @@ A modern and responsive frontend interface for a library management system. This
 
 ---
 
-## Screenshots
-
-Here’s a look at the application's interface.
-
-**Main Dashboard View**
-*A central hub displaying key library statistics and recent activity.*
-![Dashboard View](./screenshots/dashboard.png)
-
-**RFID Scanner Page**
-*A streamlined interface designed for quick input from an RFID scanner.*
-![Dashboard View](https://raw.githubusercontent.com/kavishbasole17/project-morpheus/main/image.png)
----
-
 ## Features
 
 * ** RFID Integration:** Designed for seamless check-in and check-out. The input fields on the scanner page are intended to be populated by an RFID scanner for student and book IDs.
